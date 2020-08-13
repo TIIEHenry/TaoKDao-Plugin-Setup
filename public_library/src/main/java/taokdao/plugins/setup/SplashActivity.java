@@ -1,7 +1,6 @@
-package taokdao.plugins;
+package taokdao.plugins.setup;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -15,8 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.io.IOException;
 import java.util.Objects;
 
-import tiiehenry.io.Filej;
-import tiiehenry.io.Zipl;
+import taokdao.plugins.setup.io.Filej;
+import taokdao.plugins.setup.io.Zipl;
 
 public class SplashActivity extends AppCompatActivity {
 

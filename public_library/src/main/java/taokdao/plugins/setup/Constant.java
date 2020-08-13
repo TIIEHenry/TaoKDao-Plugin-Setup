@@ -1,4 +1,4 @@
-package taokdao.plugins;
+package taokdao.plugins.setup;
 
 public class Constant {
     public static String readmeName="README.MD";

@@ -1,6 +1,5 @@
-package taokdao.plugins;
+package taokdao.plugins.setup;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,7 +15,7 @@ import java.io.IOException;
 
 import io.noties.markwon.Markwon;
 import taokdao.api.internal.InnerIdentifier;
-import tiiehenry.io.Filej;
+import taokdao.plugins.setup.io.Filej;
 
 
 public class MainActivity extends AppCompatActivity implements OnMenuItemClickListener {

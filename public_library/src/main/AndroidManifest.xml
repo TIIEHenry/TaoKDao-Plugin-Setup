@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="taokdao.plugins">
+    package="taokdao.plugins.setup">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -16,7 +16,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
 
-        <activity android:name="taokdao.plugins.SplashActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,12 +24,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="taokdao.plugins.MainActivity"
+            android:name=".MainActivity"
             android:theme="@style/ActivityMain" />
 
         <meta-data
-            android:name="type"
+            android:name="taokdao.type"
             android:value="taokdao.plugin" />
+
         <meta-data
             android:name="android.max_aspect"
             android:value="2.5" />
