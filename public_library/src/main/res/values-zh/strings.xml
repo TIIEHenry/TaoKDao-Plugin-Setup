@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="install">安装</string>
+	<string name="pressagaintoexit">再按一次退出</string>
+	<string name="taokdao_not_installed">请安装TaoKDao</string>
+</resources>
