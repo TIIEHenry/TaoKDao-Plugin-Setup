@@ -28,8 +28,12 @@
             android:theme="@style/ActivityMain" />
 
         <meta-data
-            android:name="taokdao.type"
-            android:value="taokdao.plugin" />
+            android:name="taokdao.plugin.type"
+            android:value="taokdao.plugin.setup" />
+
+        <meta-data
+            android:name="taokdao.plugin.src"
+            android:value="assets/taokdao" />
 
         <meta-data
             android:name="android.max_aspect"
