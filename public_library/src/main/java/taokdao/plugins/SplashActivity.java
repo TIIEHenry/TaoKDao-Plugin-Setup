@@ -66,7 +66,7 @@ public class SplashActivity extends AppCompatActivity {
             protected Integer doInBackground(Object... objArr) {
                 try {
                     new Filej(Constant.extractedDir).deleteAll();
-                    new Zipl(new Filej(getApplicationInfo().publicSourceDir)).unZipDir("src", new Filej(Constant.extractedDir));
+                    new Zipl(new Filej(getApplicationInfo().publicSourceDir)).unZipDir("assets/taokdao", new Filej(Constant.extractedDir));
 //                    new Filej(SplashActivity.this.getApplicationInfo().publicSourceDir).copyTo(new Filej(SplashActivity.filesPath,getPackageName()));
                     return 0;
                 } catch (IOException e) {
