@@ -32,7 +32,7 @@
             android:value="taokdao.plugin.setup" />
 
         <meta-data
-            android:name="taokdao.plugin.src"
+            android:name="taokdao.plugin.source"
             android:value="assets/taokdao" />
 
         <meta-data
