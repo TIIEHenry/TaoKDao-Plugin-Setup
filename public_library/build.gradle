@@ -25,3 +25,5 @@ dependencies {
     api 'tiiehenry.taokdao.api:api_public:+'
     api "io.noties.markwon:core:4.4.0"
 }
+
+apply from: "../properties/maven-publish.gradle"
