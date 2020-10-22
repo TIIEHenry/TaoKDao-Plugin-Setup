@@ -3,4 +3,6 @@
 	<string name="install">安装</string>
 	<string name="pressagaintoexit">再按一次退出</string>
 	<string name="taokdao_not_installed">请安装TaoKDao</string>
+    <string name="install_taokdao_dialog_title">TaoKDao没有安装</string>
+	<string name="install_taokdao_dialog_content">是否到应用市场获取TaoKDao？</string>
 </resources>

@@ -8,11 +8,13 @@
     <ScrollView
         android:id="@+id/scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/tv_md"
                 android:layout_width="match_parent"
@@ -23,4 +25,14 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/btn_install"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?attr/colorPrimary"
+        android:text="@string/install"
+        android:textColor="#ffffffff"
+        android:textAllCaps="true"
+        android:textSize="18sp" />
 </LinearLayout>

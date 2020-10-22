@@ -1,13 +1,18 @@
 package taokdao.plugins.setup;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
@@ -36,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
             e.printStackTrace();
             Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
         }
+        Button btnInstall = findViewById(R.id.btn_install);
+        btnInstall.setOnClickListener(v -> install());
     }
 
     public void onBackPressed() {
@@ -55,18 +62,45 @@ public class MainActivity extends AppCompatActivity implements OnMenuItemClickLi
 
     public boolean onMenuItemClick(MenuItem menuItem) {
         if (menuItem.getItemId() == R.string.install) {
-            Intent intent = getPackageManager().getLaunchIntentForPackage(Constant.taokdaoPackage);
-            if (intent == null) {
-                Toast.makeText(this, R.string.taokdao_not_installed, Toast.LENGTH_LONG).show();
-                return false;
-            }
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(InnerIdentifier.Intent.PARAMETER_ACTION, InnerIdentifier.Intent.ACTION_INSTALL_PLUGIN);
-            intent.putExtra(InnerIdentifier.Intent.PARAMETER_PACKAGE, getPackageName());
-            startActivity(intent);
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
-            finish();
+            return install();
         }
         return false;
+    }
+
+    private boolean install() {
+        Intent intent = getPackageManager().getLaunchIntentForPackage(Constant.taokdaoPackage);
+        if (intent == null) {
+            Toast.makeText(this, R.string.taokdao_not_installed, Toast.LENGTH_LONG).show();
+            showTaoKDaoInstallDialog();
+            return false;
+        }
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra(InnerIdentifier.Intent.PARAMETER_ACTION, InnerIdentifier.Intent.ACTION_INSTALL_PLUGIN);
+        intent.putExtra(InnerIdentifier.Intent.PARAMETER_PACKAGE, getPackageName());
+        startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+        finish();
+        return true;
+    }
+
+    private void showTaoKDaoInstallDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.install_taokdao_dialog_title)
+                .setMessage(R.string.install_taokdao_dialog_content)
+                .setPositiveButton(android.R.string.ok, (dialog, which) -> {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + Constant.taokdaoPackage));
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    if (intent.resolveActivity(getPackageManager()) != null) {
+                        startActivity(intent);
+                    } else {
+                        Intent intent2 = new Intent(Intent.ACTION_VIEW, Uri.parse("market://search?q=" + Constant.taokdaoPackage));
+                        intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        if (intent2.resolveActivity(getPackageManager()) != null) {
+                            startActivity(intent2);
+                        }
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
     }
 }

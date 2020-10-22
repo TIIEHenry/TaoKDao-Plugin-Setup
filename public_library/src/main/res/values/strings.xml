@@ -3,4 +3,6 @@
 	<string name="generation" translatable="false">TaoKDao Plugin VER2.0</string>
 	<string name="pressagaintoexit">Press again to exit</string>
 	<string name="taokdao_not_installed">Please Install TaoKDao</string>
+	<string name="install_taokdao_dialog_title">TaoKDao is not installed</string>
+	<string name="install_taokdao_dialog_content">Would you like to go to market and get TaoKDao ?</string>
 </resources>
